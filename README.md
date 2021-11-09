@@ -2,7 +2,7 @@
 
 Often times I will have a Next.js route that I want to break into multiple subcomponents, but those subcomponents really only make sense in the context of that route. You _could_ add them to the components folder, but then they are routeable.
 
-Historyically, I've made a mirror folder hierarcy under /components/pages/pageName/SomeComponent.js. While this works, it breaks the colocation of related files.
+Historically, I've made a mirror folder hierarchy under /components/pages/pageName/SomeComponent.js. While this works, it breaks the colocation of related files.
 
 TIL you can add a "pageExtensions" to your next.config.js file to define what Next considers a "page" and what is not, thus allowing for colocation of related page files! Read more about custom page extensions [here](https://nextjs.org/docs/api-reference/next.config.js/custom-page-extensions) as I'm yet unsure if there are any gotchas.
 
