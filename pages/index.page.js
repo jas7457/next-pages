@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+// This is routeable since it ends with .page.js
 export default function Home() {
 	const [dogs, setDogs] = useState([]);
 
