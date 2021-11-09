@@ -1,34 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Colocating Next.js "pages" components
 
-## Getting Started
+Often times I will have a Next.js route that I want to break into multiple subcomponents, but those subcomponents really only make sense in the context of that route. You _could_ add them to the components folder, but then they are routeable.
 
-First, run the development server:
+Historyically, I've made a mirror folder hierarcy under /components/pages/pageName/SomeComponent.js. While this works, it breaks the colocation of related files.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+TIL you can add a "pageExtensions" to your next.config.js file to define what Next considers a "page" and what is not, thus allowing for colocation of related page files! Read more about custom page extensions [here](https://nextjs.org/docs/api-reference/next.config.js/custom-page-extensions) as I'm yet unsure if there are any gotchas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+It's worth noting that I'm unsure how this would interact with the new client and server components introduced in Next 12, as they also rely on .server.js and .client.js extensions, so it may interfere with that (untested).
